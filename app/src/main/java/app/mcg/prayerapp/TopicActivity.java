@@ -25,18 +25,19 @@ public class TopicActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GenericClass.topic = 1;
+                Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
+                startActivity(i);
             }
         });
         t2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GenericClass.topic = 2;
+                Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
+                startActivity(i);
             }
         });
 
-
-        Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
-        startActivity(i);
 
     }
 }
