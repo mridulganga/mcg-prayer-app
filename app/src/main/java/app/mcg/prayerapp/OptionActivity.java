@@ -21,7 +21,7 @@ public class OptionActivity extends AppCompatActivity {
                 RadioButton learn_radio = findViewById(R.id.option_learn);
 //                RadioButton recite_radio = findViewById(R.id.option_recite);
 
-               GenericClass.option = learn_radio.isSelected();
+               GenericClass.option = learn_radio.isChecked();
 
                Intent i = new Intent(getApplicationContext(),TopicActivity.class);
                startActivity(i);
