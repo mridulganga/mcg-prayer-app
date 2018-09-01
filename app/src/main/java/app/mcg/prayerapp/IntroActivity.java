@@ -18,6 +18,10 @@ public class IntroActivity extends AppCompatActivity {
         intro_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                GenericClass.dbc = new DatabaseClass(getApplicationContext());
+                GenericClass.dbc.initDB();
+
                 Intent i = new Intent(getApplicationContext(),OptionActivity.class);
                 startActivity(i);
             }

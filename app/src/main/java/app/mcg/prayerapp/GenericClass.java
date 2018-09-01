@@ -6,4 +6,7 @@ public class GenericClass {
     public static int topic=0;
     public static int page=0;
     public static int chap=0;
+
+    public static DatabaseClass dbc;
+
 }
