@@ -17,13 +17,14 @@ public class DatabaseClass extends SQLiteOpenHelper {
 
     DatabaseClass(Context context){
         super(context, "main.db", null, 1);
+        database = this.getWritableDatabase();
     }
 
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        database = db;
+//        database = db;
         db.execSQL(initSQL_topic);
         db.execSQL(initSQL_chapter);
         db.execSQL(initSQL_page);

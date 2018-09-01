@@ -20,7 +20,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 GenericClass.dbc = new DatabaseClass(getApplicationContext());
-                GenericClass.dbc.initDB();
+//                GenericClass.dbc.initDB();
 
                 Intent i = new Intent(getApplicationContext(),OptionActivity.class);
                 startActivity(i);

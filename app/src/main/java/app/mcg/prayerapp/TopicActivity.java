@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class TopicActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class TopicActivity extends AppCompatActivity {
 
 
         Cursor c = GenericClass.dbc.fetchTopics();
+        Toast.makeText(getApplicationContext(),"Topics : " + c.getCount(),Toast.LENGTH_SHORT).show();
+
         for (int i =0; i<c.getCount();i++){
             int topic_id = c.getInt(0);
             String topic_name = c.getString(1);
