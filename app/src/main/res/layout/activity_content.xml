@@ -12,9 +12,16 @@
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="config data"
+        android:id="@+id/data"/>
+    <TextView
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Verse"
         android:id="@+id/verse"/>
     <TextView
+        android:id="@+id/meaning"
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

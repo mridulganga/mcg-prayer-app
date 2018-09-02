@@ -6,66 +6,56 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ChapterActivity extends AppCompatActivity {
+public class ChapterActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter);
 
-        int topic = GenericClass.topic;
-//            gerate sql query using topic id
-//            get results
-//            display in recycler view
-        Button chap1 = findViewById(R.id.chap1);
-        Button chap2 = findViewById(R.id.chap2);
-        Button chap3 = findViewById(R.id.chap3);
-        Button chap4 = findViewById(R.id.chap4);
-
-        chap1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GenericClass.chap=1;
-                Intent i = new Intent(getApplicationContext(),ContentActivity.class);
-                startActivity(i);
-
-            }
-        });
-
-        chap2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GenericClass.chap=2;
-                Intent i = new Intent(getApplicationContext(),ContentActivity.class);
-                startActivity(i);
-
-            }
-        });
-
-        chap3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GenericClass.chap=3;
-                Intent i = new Intent(getApplicationContext(),ContentActivity.class);
-                startActivity(i);
-
-            }
-        });
-        chap4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GenericClass.chap=4;
-                Intent i = new Intent(getApplicationContext(),ContentActivity.class);
-                startActivity(i);
-
-            }
-        });
+        Button c[] = new Button[10];
+        c[0] = findViewById(R.id.chap1);
+        c[1] = findViewById(R.id.chap2);
+        c[2] = findViewById(R.id.chap3);
+        c[3] = findViewById(R.id.chap4);
+        c[4] = findViewById(R.id.chap5);
+        c[5] = findViewById(R.id.chap6);
+        c[6] = findViewById(R.id.chap7);
+        c[7] = findViewById(R.id.chap8);
+        c[8] = findViewById(R.id.chap9);
+        c[9] = findViewById(R.id.chap10);
 
 
+        for (int i=0;i<10;i++){
+            c[i].setVisibility(View.GONE);
+        }
 
 
+        for (int i=0;i<GenericClass.dbc.fetchChapterCount(GenericClass.topic).getInt(0);i++){
+            c[i].setOnClickListener(this);
+            c[i].setVisibility(View.VISIBLE);
+        }
 
 }
 
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.chap1: GenericClass.chap=1;break;
+            case R.id.chap2: GenericClass.chap=2;break;
+            case R.id.chap3: GenericClass.chap=3;break;
+            case R.id.chap4: GenericClass.chap=4;break;
+            case R.id.chap5: GenericClass.chap=5;break;
+            case R.id.chap6: GenericClass.chap=6;break;
+            case R.id.chap7: GenericClass.chap=7;break;
+            case R.id.chap8: GenericClass.chap=8;break;
+            case R.id.chap9: GenericClass.chap=9;break;
+            case R.id.chap10: GenericClass.chap=10;break;
+        }
+
+        Intent i = new Intent(getApplicationContext(),ContentActivity.class);
+        startActivity(i);
+    }
 }

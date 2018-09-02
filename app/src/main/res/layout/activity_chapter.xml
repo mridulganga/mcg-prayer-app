@@ -7,10 +7,7 @@
     android:orientation="vertical"
     tools:context=".ChapterActivity"
     android:padding="20dp">
-    <ListView
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+
 
     <Button
         android:layout_width="match_parent"
@@ -36,5 +33,35 @@
         android:layout_height="wrap_content"
         android:id="@+id/chap4"
         android:text="Chapter 4"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap5"
+        android:text="Chapter 5"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap6"
+        android:text="Chapter 6"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap7"
+        android:text="Chapter 7"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap8"
+        android:text="Chapter 8"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap9"
+        android:text="Chapter 9"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chap10"
+        android:text="Chapter 10"/>
 
 </LinearLayout>

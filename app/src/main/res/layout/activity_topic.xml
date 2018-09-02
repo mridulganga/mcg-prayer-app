@@ -22,13 +22,19 @@
         android:text="Language Topic" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/topic_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Some Topic Here" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/topic_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Language Topic" />
+
+    <Button
+        android:id="@+id/topic_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Language Topic" />

@@ -1,5 +1,6 @@
 package app.mcg.prayerapp;
 
+import android.database.Cursor;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,8 +48,21 @@ public class ContentActivity extends AppCompatActivity {
         String option = GenericClass.option?"Learn":"Recite";
 
         // fetch page data from db and view it.
-        TextView verse=findViewById(R.id.verse);
-        verse.setText(option + " \nTopic : " + topic + " \nChapter : " + chapter + " \nPage : " + page);
+        Cursor c = GenericClass.dbc.fetchPage(GenericClass.topic,GenericClass.chap,GenericClass.page);
+        String verse = c.getString(0);
+        String meaning = c.getString(1);
+        String audio = c.getString(2);
+
+        TextView data,versetv,meaningtv;
+        data=findViewById(R.id.data);
+        versetv = findViewById(R.id.verse);
+        meaningtv = findViewById(R.id.meaning);
+
+        data.setText(option + " \nTopic : " + topic + " \nChapter : " + chapter + " \nPage : " + page);
+        versetv.setText(verse);
+        meaningtv.setText(meaning);
+
+
     }
 
 }

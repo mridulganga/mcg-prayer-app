@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class TopicActivity extends AppCompatActivity {
+public class TopicActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,36 +20,52 @@ public class TopicActivity extends AppCompatActivity {
         Cursor c = GenericClass.dbc.fetchTopics();
         Toast.makeText(getApplicationContext(),"Topics : " + c.getCount(),Toast.LENGTH_SHORT).show();
 
-        for (int i =0; i<c.getCount();i++){
-            int topic_id = c.getInt(0);
-            String topic_name = c.getString(1);
-            Log.d("DATA",topic_name + " " + topic_id);
-            c.moveToNext();
-        }
 
-        Button t1,t2;
+//          NOT REALLY USEFUL
+//        for (int i =0; i<c.getCount();i++){
+//            int topic_id = c.getInt(0);
+//            String topic_name = c.getString(1);
+//            Log.d("DATA",topic_name + " " + topic_id);
+//            c.moveToNext();
+//        }
+
+        Button t1,t2,t3,t4,t5;
         t1 = findViewById(R.id.topic_1);
         t2 = findViewById(R.id.topic_2);
+        t3 = findViewById(R.id.topic_3);
+        t4 = findViewById(R.id.topic_4);
+        t5 = findViewById(R.id.topic_5);
+
+        t1.setOnClickListener(this);
+        t2.setOnClickListener(this);
+        t3.setOnClickListener(this);
+        t4.setOnClickListener(this);
+        t5.setOnClickListener(this);
 
 
 
-        t1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.topic_1:
                 GenericClass.topic = 1;
-                Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
-                startActivity(i);
-            }
-        });
-        t2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.topic_2:
                 GenericClass.topic = 2;
-                Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
-                startActivity(i);
-            }
-        });
-
-
+                break;
+            case R.id.topic_3:
+                GenericClass.topic = 3;
+                break;
+            case R.id.topic_4:
+                GenericClass.topic = 4;
+                break;
+            case R.id.topic_5:
+                GenericClass.topic = 5;
+                break;
+        }
+        Intent i = new Intent(getApplicationContext(),ChapterActivity.class);
+        startActivity(i);
     }
 }
