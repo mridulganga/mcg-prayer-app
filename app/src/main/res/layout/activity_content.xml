@@ -12,7 +12,7 @@
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="config data"
+        android:text="data not available"
         android:id="@+id/data"/>
     <TextView
         android:padding="20dp"

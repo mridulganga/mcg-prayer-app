@@ -17,17 +17,8 @@ public class TopicActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_topic);
 
 
-        Cursor c = GenericClass.dbc.fetchTopics();
-        Toast.makeText(getApplicationContext(),"Topics : " + c.getCount(),Toast.LENGTH_SHORT).show();
+//        if (GenericClass.dbc==null) GenericClass.dbc = new DatabaseClass(getApplicationContext());
 
-
-//          NOT REALLY USEFUL
-//        for (int i =0; i<c.getCount();i++){
-//            int topic_id = c.getInt(0);
-//            String topic_name = c.getString(1);
-//            Log.d("DATA",topic_name + " " + topic_id);
-//            c.moveToNext();
-//        }
 
         Button t1,t2,t3,t4,t5;
         t1 = findViewById(R.id.topic_1);

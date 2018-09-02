@@ -13,6 +13,8 @@ public class ChapterActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter);
 
+        if (GenericClass.dbc==null) GenericClass.dbc = new DatabaseClass(getApplicationContext());
+
         Button c[] = new Button[10];
         c[0] = findViewById(R.id.chap1);
         c[1] = findViewById(R.id.chap2);
@@ -30,11 +32,12 @@ public class ChapterActivity extends AppCompatActivity implements View.OnClickLi
             c[i].setVisibility(View.GONE);
         }
 
-
-        for (int i=0;i<GenericClass.dbc.fetchChapterCount(GenericClass.topic).getInt(0);i++){
-            c[i].setOnClickListener(this);
-            c[i].setVisibility(View.VISIBLE);
-        }
+        try {
+            for (int i = 0; i < GenericClass.dbc.fetchChapterCount(GenericClass.topic).getInt(0); i++) {
+                c[i].setOnClickListener(this);
+                c[i].setVisibility(View.VISIBLE);
+            }
+        }catch(Exception e){}
 
 }
 

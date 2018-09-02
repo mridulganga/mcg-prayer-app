@@ -15,6 +15,8 @@ public class ContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
+        if (GenericClass.dbc==null) GenericClass.dbc = new DatabaseClass(getApplicationContext());
+
         Button prev_btn=findViewById(R.id.prev_btn);
         Button next_btn=findViewById(R.id.next_btn);
 
@@ -47,21 +49,21 @@ public class ContentActivity extends AppCompatActivity {
         int page = GenericClass.page;
         String option = GenericClass.option?"Learn":"Recite";
 
-        // fetch page data from db and view it.
-        Cursor c = GenericClass.dbc.fetchPage(GenericClass.topic,GenericClass.chap,GenericClass.page);
-        String verse = c.getString(0);
-        String meaning = c.getString(1);
-        String audio = c.getString(2);
+        try {
+            Cursor c = GenericClass.dbc.fetchPage(GenericClass.topic, GenericClass.chap, GenericClass.page);
+            String verse = c.getString(0);
+            String meaning = c.getString(1);
+            String audio = c.getString(2);
 
-        TextView data,versetv,meaningtv;
-        data=findViewById(R.id.data);
-        versetv = findViewById(R.id.verse);
-        meaningtv = findViewById(R.id.meaning);
+            TextView data, versetv, meaningtv;
+            data = findViewById(R.id.data);
+            versetv = findViewById(R.id.verse);
+            meaningtv = findViewById(R.id.meaning);
 
-        data.setText(option + " \nTopic : " + topic + " \nChapter : " + chapter + " \nPage : " + page);
-        versetv.setText(verse);
-        meaningtv.setText(meaning);
-
+            data.setText(option + " \nTopic : " + topic + " \nChapter : " + chapter + " \nPage : " + page);
+            versetv.setText(verse);
+            meaningtv.setText(meaning);
+        }catch(Exception e){}
 
     }
 
